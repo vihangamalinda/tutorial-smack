@@ -1,7 +1,7 @@
 
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router,Routes,  Link , Route } from "react-router-dom";
+import { BrowserRouter ,Routes,  Link , Route } from "react-router-dom";
 
 import AddTutorial from "./components/AddTutorial.jsx"
 import Tutorial from "./components/Tutorial"
@@ -11,7 +11,7 @@ import TutorialList from "./components/TutorialList.jsx"
 function App() {
   return (
     
-      <Router>
+      <BrowserRouter>
         <nav className='navbar navbar-expand '>
           <a href='/tutorials' className='navbar-brand'>Vihanga_M</a>
           <div className='navbar-nav mr-auto'>
@@ -27,12 +27,12 @@ function App() {
         </nav>
         <div className='container mt-3'>
           <Routes>
-            <Route exact path={["/","tutorials"]} component={TutorialList}/>
-            <Route exact path='/add' component={AddTutorial}/>
-            <Route exact path='/tutorials/:id' component={Tutorial}/>
+            <Route  path="/tutorials" element={<TutorialList/>}/>
+            <Route  path='/add' element={<AddTutorial/>}/>
+            <Route  path='/tutorials/:id' element={<Tutorial/>}/>
           </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
   );
 }
 
